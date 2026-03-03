@@ -1,10 +1,8 @@
 #place 8 queens on an 8x8 chessboard without any being able to attack each other
 #grid layout using indexing from 0
 #origin (0,0) at top left
-BOARD_SIZE = 8
+BOARD_SIZE = 12
 board = [['x' for i in range(BOARD_SIZE)] for i in range(BOARD_SIZE)]
-layout = '| {} | {} | {} | {} | {} | {} | {} | {} |'
-border = '_' * 33
 queens = []
 
 def placeQueen(row,column,board):
@@ -43,10 +41,20 @@ def solve(row, board, queens):
     return False  # No solution from this path
 
 def showBoard(board):
-  for i in range(8):
+    # Get dynamic board size
+    size = len(board)
+    
+    # Create dynamic layout string using join
+    layout = '|' + '|'.join([' {} '] * size) + '|'
+    border = '_' * (len(layout.format(*['x']*size)))
+    
+    for i in range(size):
+        print(border)
+        # Pass entire row to format
+        row_display = [board[row][i] for row in range(size)]
+        print(layout.format(*row_display))
+        
     print(border)
-    print(layout.format(board[0][i],board[1][i],board[2][i],board[3][i],board[4][i],board[5][i],board[6][i], board[7][i]))
-  print(border + '\n')
   
   
     

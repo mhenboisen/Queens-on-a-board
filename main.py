@@ -45,18 +45,7 @@ def solve(row, board, queens):
 def showBoard(board):
   for i in range(8):
     print(border)
-    print(layout.format(
-                        board[0][i],
-                        board[1][i],
-                        board[2][i],
-                        board[3][i],
-                        board[4][i],
-                        board[5][i],
-                        board[6][i],
-                        board[7][i]
-                        )
-                        )
-                        
+    print(layout.format(board[0][i],board[1][i],board[2][i],board[3][i],board[4][i],board[5][i],board[6][i], board[7][i]))
   print(border + '\n')
   
   
